@@ -230,7 +230,7 @@
         <input type="checkbox" id="video" onclick="videoSwitch()"/>
         <label class="check" for="video"><div></div></label>
         <br>
-        
+
         <div id="session-control" style="margin-bottom: 16px;" hidden>
           <button id="connect" class="Vlt-btn Vlt-btn--primary" onclick="initializeSession()">Connect to Session</button>
         </div>
@@ -451,7 +451,7 @@
       let enableSoundEffect = true;
       let enableStatsFlag = false;
       let enableAudio = true; // Assume not > 16 speakers
-      let enableVideo = true; // Assume not > 16 speakers
+      let enableVideo = false; // Assume not > 16 speakers
       let unpublishDelay = 30; // 30s of disable audio + video to consider unpublishing
       let retryCount = 0;
       let retryLimit = 0;
