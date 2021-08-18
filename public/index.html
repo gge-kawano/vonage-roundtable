@@ -229,7 +229,8 @@
         <label for="video" class="Vlt-label">Video</label>
         <input type="checkbox" id="video" onclick="videoSwitch()"/>
         <label class="check" for="video"><div></div></label>
-
+        <br>
+        
         <div id="session-control" style="margin-bottom: 16px;" hidden>
           <button id="connect" class="Vlt-btn Vlt-btn--primary" onclick="initializeSession()">Connect to Session</button>
         </div>
@@ -746,8 +747,10 @@
       function videoSwitch() {
         if(enableVideo) {
           alert('TRUE');
+          enableVideo = false;
         } else {
-          alert('FALESE');
+          alert('FALSE');
+          enableVideo = true;
         }
       }
 
