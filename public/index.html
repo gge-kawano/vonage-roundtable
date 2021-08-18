@@ -3,8 +3,8 @@
   <head>
     <title>GnGn OST</title>
 
-    <meta name="google-signin-client_id" content="751973864515-6ree7fbo4foclmtsq65ljpr5qgb761fk.apps.googleusercontent.com">
-    <script src="https://apis.google.com/js/platform.js" async defer></script>
+    <!-- <meta name="google-signin-client_id" content="751973864515-6ree7fbo4foclmtsq65ljpr5qgb761fk.apps.googleusercontent.com">
+    <script src="https://apis.google.com/js/platform.js" async defer></script> -->
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/3.0.5/socket.io.js" integrity="sha512-2rUSTSAeOO02jF6eBqENNqPs1EohenJ5j+1dgDPdXSLz9nOlrr8DJk4zW/lDy8rjhGCSonW3Gx812XJQIKZKJQ==" crossorigin="anonymous"></script>
 
@@ -689,7 +689,7 @@
         try {
           // Disable button
           document.getElementById("connect").disabled = true;
-          document.getElementById("google-connect").disabled = true;
+          // document.getElementById("google-connect").disabled = true;
 
           // Check Room Name sanity
           roomName = document.getElementById('room').value;
@@ -977,7 +977,7 @@
             retryCount = retryLimit; // Reset Count
             
             console.log('Session Ready');
-            document.getElementById('google-connect').hidden = true;
+            // document.getElementById('google-connect').hidden = true;
             document.getElementById('session-control').hidden = true;
             document.getElementById('speaker-control').hidden = false;
             document.getElementById('speaker-control').style.display = 'flex';
@@ -1983,16 +1983,16 @@
         videoContainer.onmouseleave = handleMouseLeave;
       }
 
-      function onSignIn(googleUser) {
-        const profile = googleUser.getBasicProfile();
-        document.getElementById('name').value = profile.getName();
+      // function onSignIn(googleUser) {
+      //   const profile = googleUser.getBasicProfile();
+      //   document.getElementById('name').value = profile.getName();
 
-        const idToken = googleUser.getAuthResponse().id_token;
-        accessToken = idToken;
-        googleUser.disconnect();
+      //   const idToken = googleUser.getAuthResponse().id_token;
+      //   accessToken = idToken;
+      //   googleUser.disconnect();
 
-        initializeSession();
-      }
+      //   initializeSession();
+      // }
 
       async function toggleWhiteboard() {
         document.getElementById('button-whiteboard-enable').onclick = null;
