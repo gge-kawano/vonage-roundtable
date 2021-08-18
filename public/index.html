@@ -227,7 +227,7 @@
         </div>
 
         <label for="video" class="Vlt-label">Video</label>
-        <input type="checkbox" id="video"/>
+        <input type="checkbox" id="video" onclick="videoSwitch()"/>
         <label class="check" for="video"><div></div></label>
 
         <div id="session-control" style="margin-bottom: 16px;" hidden>
@@ -741,6 +741,14 @@
         });
         // or alternatively
         // return text.replace(urlRegex, '<a href="$1">$1</a>')
+      }
+
+      function videoSwitch() {
+        if(enableVideo) {
+          alert('TRUE');
+        } else {
+          alert('FALESE');
+        }
       }
 
       async function initializeSession() {
