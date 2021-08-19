@@ -226,10 +226,11 @@
           </div>
         </div>
 
-        <label for="video" class="Vlt-label">Video</label>
-        <input type="checkbox" id="video" onclick="videoSwitch()"/>
-        <label class="check" for="video"><div></div></label>
-        <br>
+        <div id="video-control" class="Vlt-form__element" hidden></div>
+          <label for="video" class="Vlt-label">Video</label>
+          <input type="checkbox" id="video" onclick="videoSwitch()"/>
+          <label class="check" for="video"><div></div></label>
+        </div>
 
         <div id="session-control" style="margin-bottom: 16px;" hidden>
           <button id="connect" class="Vlt-btn Vlt-btn--primary" onclick="initializeSession()">Connect to Session</button>
@@ -777,6 +778,10 @@
           }
           document.getElementById('name').disabled = true;
           document.getElementById('name-control').hidden = true;
+
+          // Check Display Video sanity
+          document.getElementById('video').disabled = true;
+          document.getElementById('video-control').hidden = true;
 
           // Get Credentials
           const credentials = await getCredentials();
@@ -2479,6 +2484,7 @@
           document.getElementById('connect').disabled = true;
           document.getElementById('session-control').hidden = true;
           document.getElementById('name-control').hidden = true;
+          document.getElementById('video-control').hidden = true;
         } else {
           document.getElementById('room').value = room || '';
           document.getElementById('room-control').hidden = false;
@@ -2488,10 +2494,12 @@
           document.getElementById('name').value = name;
           document.getElementById('session-control').hidden = true;
           document.getElementById('name-control').hidden = true;
+          document.getElementById('video-control').hidden = true;
           initializeSession();
         } else {
           document.getElementById('session-control').hidden = false;
           document.getElementById('name-control').hidden = false;
+          document.getElementById('video-control').hidden = false;
         }
 	      
         if (userRole === 'admin') {
