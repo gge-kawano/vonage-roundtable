@@ -233,6 +233,13 @@
           <label class="check" for="video"><div></div></label>
         </div>
 
+        <div id="fps-control" class="Vlt-form__element" hidden>
+          <label for="fps" class="Vlt-label">FPS Setting</label>
+          <div class="Vlt-input">
+            <input type="text" id="fps" value="10"/>
+          </div>
+        </div>
+
         <div id="session-control" style="margin-top: 30px; margin-bottom: 16px;" hidden>
           <button id="connect" class="Vlt-btn Vlt-btn--primary" onclick="initializeSession()">Connect to Session</button>
         </div>
@@ -480,6 +487,8 @@
       let whiteboardStarted = false;
       let whiteboardIFrame = null;
       let contentHintType = "";
+
+      let frameRateValue = 10;
 
       // Debouncing logic for handling window resize layout adjustment
       let notifySpeakerChangeTimeout = null;
@@ -779,6 +788,10 @@
           // Check Display Video sanity
           document.getElementById('video').disabled = true;
           document.getElementById('video-control').hidden = true;
+
+          frameRateValue = document.getElementById('fps').value;
+          document.getElementById('fps').disabled = true;
+          document.getElementById('fps-control').hidden = true;
 
           // Get Credentials
           const credentials = await getCredentials();
@@ -1296,7 +1309,7 @@
             name,
             width: '100%',
             resolution: `${publisherResolution.width}x${publisherResolution.height}`,
-            frameRate: 30
+            frameRate: frameRateValue
           };
 
           if (videoCycleMode !== 'auto') {
@@ -2483,6 +2496,7 @@
           document.getElementById('session-control').hidden = true;
           document.getElementById('name-control').hidden = true;
           document.getElementById('video-control').hidden = true;
+          document.getElementById('fps-control').hidden = true;
         } else {
           document.getElementById('room').value = room || '';
           document.getElementById('room-control').hidden = false;
@@ -2493,11 +2507,13 @@
           document.getElementById('session-control').hidden = true;
           document.getElementById('name-control').hidden = true;
           document.getElementById('video-control').hidden = true;
+          document.getElementById('fps-control').hidden = true;
           initializeSession();
         } else {
           document.getElementById('session-control').hidden = false;
           document.getElementById('name-control').hidden = false;
           document.getElementById('video-control').hidden = false;
+          document.getElementById('fps-control').hidden = false;
         }
 	      
         if (userRole === 'admin') {
