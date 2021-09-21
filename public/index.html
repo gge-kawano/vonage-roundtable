@@ -107,6 +107,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
   </head>
   <body style="display: flex; flex-direction: row; width: 100%; max-width: 100%;">
+
+    <div id="top-info" style="display: block; width: 100%; height: auto; padding-left: 100px; padding-top: 200px; background-color: white;">
+      Hello ****!<br>
+      lesson information.<br>
+      lesson time **:** 〜 **:**<br>
+    </div>
+
     <div id="videoContainer" class="fillAvailableHeight" style="position: relative; display: flex; flex: 1; flex-direction: row; background-color: black;">
       <div id="screenContainer" class="fillAvailableHeight" style="position: relative; display: flex; flex: 1; background-color: black; overflow: hidden;"></div>
       <div id="layoutContainer" class="fillAvailableHeight" style="position: relative; display: flex; width: 100%; background-color: black; flex-direction: row;"></div>
@@ -792,6 +799,8 @@
           frameRateValue = document.getElementById('fps').value;
           document.getElementById('fps').disabled = true;
           document.getElementById('fps-control').hidden = true;
+
+          document.getElementById('top-info').style.display = 'none';
 
           // Get Credentials
           const credentials = await getCredentials();
